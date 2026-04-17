@@ -28,21 +28,6 @@ This project allows users to manage daily tasks efficiently with authentication 
 
 ---
 
-## 📂 Project Structure
-
-```bash
-Smart-Task-Manager/
-│── manage.py
-│── db.sqlite3
-│── taskmanager/
-│── tasks/
-│── templates/
-│── static/
-```
-
-
----
-
 ## 📸 Screenshots
 
 (Add screenshots here later)
