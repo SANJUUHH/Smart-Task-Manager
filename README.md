@@ -30,5 +30,5 @@ This project allows users to manage daily tasks efficiently with authentication 
 
 ## 📸 Screenshots
 
-(Add screenshots here later)
+![Website Screenshot](screenshot.png)
 
