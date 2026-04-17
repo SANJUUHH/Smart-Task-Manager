@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Task</title>
+    <style>
+        *{
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background-color: black;
+        }
+
+        th{
+            background-color: green;
+        }
+
+        .btn{
+            text-decoration: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+        }
+
+        .btn:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+
+    <h2>List of your task: </h2>
+    <br><br>
+    <div style="width: 80%;">
+
+        <table border="1">
+            <thead>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Action</th>
+            </thead>
+
+            <tbody>
+                {% for x in tasklist %}
+                <tr>
+                    <td>{{x.title}}</td>
+                    <td>{{x.description}}</td>
+                    <td>{{x.deadline}}</td>
+                    <td>{{x.status}}</td>
+                    <td>
+                        <a href="{% url 'update' x.id %}">
+                            <button class="btn">Edit</button>
+                        </a>
+
+                        <form method="post" action="{% url 'delete' x.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button class="btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>Task not found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

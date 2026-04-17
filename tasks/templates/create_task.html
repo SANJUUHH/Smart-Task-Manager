@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create task</title>
+    <style>
+
+        *{
+            font-size: 20px;
+        }
+        body{
+            background-color: black;
+            color: green;
+        }
+
+        h2{
+            margin-top: 30px;
+            font-size: 50px;
+        }
+
+        input{
+            background-color: black;
+            border-color: green;
+        }
+
+        .btn{
+            text-decoration: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+        }
+
+        .btn:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <form method="post">
+        {% csrf_token %}
+
+        <h2>Add Task </h2>
+
+        <label>Title:
+            <input type="text" name="title" placeholder="Enter task title">
+        </label>
+        <br><br>
+
+        <label>Description:
+            <input type="text" name="description" placeholder="Enter description of the task">
+        </label>
+        <br><br>
+
+        <label>Deadline:
+            <input class="btn" type="date" name="deadline" placeholder="Enter the deadline date">
+        </label>
+        <br><br>
+
+        
+
+        <button type="submit" class="btn">Create Task</button>
+    </form>
+</body>
+</html>

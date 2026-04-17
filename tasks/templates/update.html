@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Task</title>
+
+```
+<style>
+    *{
+        font-size: 20px;
+    }
+    body{
+        background-color: black;
+        color: green;
+    }
+
+    h2{
+        margin-top: 30px;
+        font-size: 50px;
+    }
+
+    input, select{
+        background-color: black;
+        border-color: green;
+        color: white;
+    }
+
+    .btn{
+        text-decoration: none;
+        background-color: green;
+        color: white;
+        padding: 10px;
+    }
+
+    .btn:hover{
+        background-color: white;
+        color: black;
+    }
+</style>
+```
+
+</head>
+<body>
+
+```
+{% include 'navbar.html' %}
+
+<form method="post">
+    {% csrf_token %}
+
+    <h2>Update Task</h2>
+
+    <label>Title:
+        <input type="text" name="title" value="{{ tsk.title }}">
+    </label>
+    <br><br>
+
+    <label>Description:
+        <input type="text" name="description" value="{{ tsk.description }}">
+    </label>
+    <br><br>
+
+    <label>Deadline:
+        <input type="date" name="deadline" value="{{ tsk.deadline|date:'Y-m-d' }}">
+    </label>
+    <br><br>
+
+    <label>Status:
+        <select name="status">
+            <option value="Not Done" {% if tsk.status == "Not Done" %}selected{% endif %}>Not Done</option>
+            <option value="Done" {% if tsk.status == "Done" %}selected{% endif %}>Done</option>
+        </select>
+    </label>
+    <br><br>
+
+    <button type="submit" class="btn">Update Task</button>
+
+</form>
+```
+
+</body>
+</html>

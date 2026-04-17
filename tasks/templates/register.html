@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        
+        *{
+            font-size: 20px
+        }
+        body{
+            background-color: black;
+            color: green;
+        }
+
+        h2{
+            margin-top: 30px;
+            font-size: 50px;
+        }
+
+        input{
+            background-color: black;
+            border-color: green;
+        }
+
+        .btn{
+            text-decoration: none;
+            background-color: green;
+            color: white;
+            padding: 10px;
+        }
+
+        .btn:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+    
+    <form method="post">
+        {% csrf_token %}
+
+        <h2>Register/Create your Account</h2>
+
+        <label>Username:
+            <input type="text" name="username" placeholder="Enter your Username">
+        </label>
+        <br><br>
+
+        <label>Password:
+            <input type="password" name="password" placeholder="Enter your Password">
+        </label>
+        <br><br>
+
+        <p>Already have an Account? <a class="btn" href="{% url 'login' %}">Login</a></p>
+        <button type="submit" class="btn">Register/Create Account</button>
+        <br><br>
+
+    </form>
+</body>
+</html>
